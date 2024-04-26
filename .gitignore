@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-=======
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
->>>>>>> d3f68e8 (init)
 repo_assets
+.DS_Store
 
 # Logs
 logs
