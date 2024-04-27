@@ -3,6 +3,8 @@ import { Card } from "@repo/ui/card";
 import { Code } from "@repo/ui/code";
 import styles from "./page.module.css";
 import { Button } from "@repo/ui/button";
+import CsLink from "@component/CsLink";
+import CsToggle from "@component/CsToggle";
 
 function Gradient({
   conic,
@@ -53,8 +55,9 @@ const LINKS = [
 
 export default function Page(): JSX.Element {
   return (
-    <main className="">
-      <p className="h3-txt">The Octocat</p>
+    <main>
+      <CsLink url="testing" disabled />
+      <CsToggle />
     </main>
   );
 }
