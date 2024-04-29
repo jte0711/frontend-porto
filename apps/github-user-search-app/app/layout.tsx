@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
@@ -20,7 +21,14 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={spaceMono.variable}>{children}</body>
+      <body
+        className={clsx(
+          spaceMono.variable,
+          "bg-light-grey2 dark:bg-dark-black1 min-w-screen min-h-screen flex justify-center items-center"
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
