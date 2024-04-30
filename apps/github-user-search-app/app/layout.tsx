@@ -24,7 +24,8 @@ export default function RootLayout({
       <body
         className={clsx(
           spaceMono.variable,
-          "bg-light-grey2 dark:bg-dark-black1 min-w-screen min-h-screen flex justify-center items-center"
+          "bg-light-grey2 dark:bg-dark-black1 min-w-screen min-h-screen flex justify-center items-center",
+          "py-8 px-6 lg:p-0"
         )}
       >
         {children}

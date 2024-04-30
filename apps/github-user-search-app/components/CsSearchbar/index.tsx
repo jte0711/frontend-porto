@@ -5,13 +5,14 @@ import React from "react";
 
 interface CsSearchbarProps {
   containerClass?: string;
+  showError?: boolean;
 }
 
-const CsSearchbar = ({ containerClass }: CsSearchbarProps) => {
+const CsSearchbar = ({ containerClass, showError }: CsSearchbarProps) => {
   return (
     <section
       className={clsx(
-        "flex w-full items-center py-[9.5px] pr-[10px] pl-8 bg-white dark:bg-dark-black2 shadow-2xl dark:drop-shadow-none rounded-2xl",
+        "flex w-full items-center py-[7px] pr-[7px] lg:py-[9.5px] lg:pr-[10px] pl-4 lg:pl-8 bg-white dark:bg-dark-black2 shadow-2xl dark:drop-shadow-none rounded-2xl",
         containerClass
       )}
     >
@@ -20,7 +21,7 @@ const CsSearchbar = ({ containerClass }: CsSearchbarProps) => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="size-6 text-dark-blue"
+          className="size-5 lg:size-6 text-dark-blue"
         >
           <path
             fillRule="evenodd"
@@ -30,13 +31,17 @@ const CsSearchbar = ({ containerClass }: CsSearchbarProps) => {
         </svg>
       </div>
       <input
-        className="flex flex-grow mx-6 body-txt text-lg text-light-black2 dark:text-white placeholder-light-blue2 dark:placeholder:text-white bg-transparent outline-none"
+        className="flex flex-grow ml-2 lg:ml-6 h4-txt lg:text-lg text-light-black2 dark:text-white placeholder-light-blue2 dark:placeholder:text-white bg-transparent outline-none"
         placeholder="Search GitHub username…"
       />
-      <p className="cursor-default mr-6 text-light-red body-txt font-bold">
-        No results
-      </p>
-      <CsButton onClick={() => {}}>Search</CsButton>
+      {showError && (
+        <p className="cursor-default text-light-red h4-txt lg:body-txt font-bold ml-2 lg:ml-6">
+          No results
+        </p>
+      )}
+      <CsButton containerClass="ml-2 lg:ml-6" onClick={() => {}}>
+        Search
+      </CsButton>
     </section>
   );
 };
