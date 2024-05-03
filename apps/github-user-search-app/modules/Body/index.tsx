@@ -11,7 +11,7 @@ const CsBody = ({ containerClass }: CsBodyProps) => {
   return (
     <section
       className={clsx(
-        "flex w-full py-8 px-6 mt-4 lg:p-12 lg:mt-6 bg-white dark:bg-dark-black2 rounded-2xl",
+        "flex w-full py-8 px-6 md:p-10 mt-4 lg:p-12 md:mt-6 bg-white dark:bg-dark-black2 rounded-2xl",
         containerClass
       )}
     >
@@ -24,22 +24,29 @@ const CsBody = ({ containerClass }: CsBodyProps) => {
         />
       </div>
       <div className="lg:ml-9 w-full">
-        <div className="flex">
+        <div className="flex md:items-center w-full">
           <Image
             src={"/octocat.png"}
             alt="Octocat logo"
             width={70}
             height={70}
-            className="lg:hidden"
+            className="md:hidden"
           />
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center ml-5 lg:ml-0">
-            <h1 className="h3-txt font-bold lg:h1-txt text-light-black dark:text-white">
+          <Image
+            src={"/octocat.png"}
+            alt="Octocat logo"
+            width={117}
+            height={117}
+            className="hidden md:block lg:hidden"
+          />
+          <div className="w-full flex flex-col lg:flex-row lg:justify-between lg:items-center ml-5 md:ml-10 lg:ml-0">
+            <h1 className="h3-txt font-bold md:h1-txt text-light-black dark:text-white">
               The Octocat
             </h1>
-            <span className="lg:hidden h4-txt lg:h3-txt text-light-blue1">
+            <span className="lg:hidden md:mt-[2px] h4-txt md:h3-txt text-light-blue1">
               @octocat
             </span>
-            <p className="h4-txt lg:body-txt text-light-grey1 dark:text-white mt-[6px] lg:mt-0">
+            <p className="h4-txt md:body-txt text-light-grey1 dark:text-white mt-[6px] md:mt-1 lg:mt-0">
               Joined 15 Jul 2011
             </p>
           </div>
@@ -47,38 +54,38 @@ const CsBody = ({ containerClass }: CsBodyProps) => {
         <span className="hidden lg:block h4-txt lg:h3-txt text-light-blue1 mt-[2px]">
           @octocat
         </span>
-        <p className="h4-txt lg:body-txt mt-8 lg:mt-5 text-light-blue2 dark:text-white">
+        <p className="h4-txt md:body-txt mt-8 md:mt-6 lg:mt-5 text-light-blue2 dark:text-white">
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
           Quisque volutpat mattis eros.
         </p>
         {/* Count Component */}
-        <div className="mt-6 lg:mt-8 grid grid-cols-3 py-[18px] lg:py-4 px-[14px] lg:px-8 gap-x-8 w-full rounded-[10px] bg-light-grey2 dark:bg-dark-black1">
+        <div className="mt-6 md:mt-8 grid grid-cols-3 py-[18px] lg:py-4 px-[14px] lg:px-8 gap-x-8 w-full rounded-[10px] bg-light-grey2 dark:bg-dark-black1">
           <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start">
-            <h3 className="text-light-blue2 dark:text-white h3-txt text-[11px] lg:h4-txt">
+            <h3 className="text-light-blue2 dark:text-white h3-txt text-[11px] md:h4-txt">
               Repos
             </h3>
-            <p className="mt-[1px] text-light-black dark:text-white h3-txt lg:h2-txt">
+            <p className="mt-[1px] text-light-black dark:text-white h3-txt md:h2-txt">
               8
             </p>
           </div>
           <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start">
-            <h3 className="text-light-blue2 dark:text-white h3-txt text-[11px] lg:h4-txt">
+            <h3 className="text-light-blue2 dark:text-white h3-txt text-[11px] md:h4-txt">
               Followers
             </h3>
-            <p className="mt-[1px] text-light-black dark:text-white h3-txt lg:h2-txt">
+            <p className="mt-[1px] text-light-black dark:text-white h3-txt md:h2-txt">
               3939
             </p>
           </div>
           <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start">
-            <h3 className="text-light-blue2 dark:text-white h3-txt text-[11px] lg:h4-txt">
+            <h3 className="text-light-blue2 dark:text-white h3-txt text-[11px] md:h4-txt">
               Following
             </h3>
-            <p className="mt-[1px] text-light-black dark:text-white h3-txt lg:h2-txt">
+            <p className="mt-[1px] text-light-black dark:text-white h3-txt md:h2-txt">
               9
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-4 lg:gap-y-5 mt-6 lg:mt-9">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-4 lg:gap-y-5 mt-6 md:mt-[34px] lg:mt-9">
           <CsLink
             icon={
               <svg

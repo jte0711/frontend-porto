@@ -26,7 +26,7 @@ const CsLink = ({ text, disabled = false, icon }: CsLinkProps) => {
       )}
       <p
         className={clsx(
-          "text-light-blue2 dark:text-white h4-txt lg:body-txt ml-3 lg:ml-4 cursor-default",
+          "text-light-blue2 dark:text-white h4-txt md:body-txt ml-3 lg:ml-4 cursor-default",
           disabled ? "opacity-50" : "hover:cursor-pointer hover:underline"
         )}
       >
