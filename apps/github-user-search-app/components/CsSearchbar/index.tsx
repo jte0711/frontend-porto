@@ -1,14 +1,23 @@
 "use client";
 import CsButton from "@component/CsButton";
 import clsx from "clsx";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 interface CsSearchbarProps {
   containerClass?: string;
   showError?: boolean;
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
+  onSubmit: () => void;
 }
 
-const CsSearchbar = ({ containerClass, showError }: CsSearchbarProps) => {
+const CsSearchbar = ({
+  containerClass,
+  showError,
+  searchValue,
+  setSearchValue,
+  onSubmit,
+}: CsSearchbarProps) => {
   return (
     <section
       className={clsx(
@@ -33,13 +42,18 @@ const CsSearchbar = ({ containerClass, showError }: CsSearchbarProps) => {
       <input
         className="flex flex-grow ml-2 md:ml-6 h4-txt md:text-lg text-light-black2 dark:text-white placeholder-light-blue2 dark:placeholder-white bg-transparent outline-none"
         placeholder="Search GitHub username…"
+        value={searchValue}
+        onChange={(e) => {
+          e.preventDefault();
+          setSearchValue(e.currentTarget.value);
+        }}
       />
       {showError && (
         <p className="cursor-default text-light-red h4-txt md:body-txt font-bold ml-2 md:ml-6">
           No results
         </p>
       )}
-      <CsButton containerClass="ml-2 md:ml-6" onClick={() => {}}>
+      <CsButton containerClass="ml-2 md:ml-6" onClick={onSubmit}>
         Search
       </CsButton>
     </section>

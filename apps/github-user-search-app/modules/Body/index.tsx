@@ -2,12 +2,42 @@ import CsLink from "@component/CsLink";
 import clsx from "clsx";
 import Image from "next/image";
 import React from "react";
+import { GitHubUser } from "schemas/githubSchema";
 
-interface CsBodyProps {
+interface CsBodyProps
+  extends Omit<
+    GitHubUser,
+    | "public_repos"
+    | "followers"
+    | "following"
+    | "avatar_url"
+    | "twitter_username"
+    | "created_at"
+  > {
   containerClass?: string;
+  publicRepos: string;
+  followers: string;
+  following: string;
+  avatarUrl: string;
+  twitterUsername: string;
+  createdAt: string;
 }
 
-const CsBody = ({ containerClass }: CsBodyProps) => {
+const CsBody = ({
+  containerClass,
+  login,
+  name,
+  bio,
+  publicRepos,
+  followers,
+  following,
+  location,
+  blog,
+  company,
+  twitterUsername,
+  avatarUrl,
+  createdAt,
+}: CsBodyProps) => {
   return (
     <section
       className={clsx(
@@ -17,46 +47,46 @@ const CsBody = ({ containerClass }: CsBodyProps) => {
     >
       <div className="hidden lg:block">
         <Image
-          src={"/octocat.png"}
+          src={avatarUrl}
           alt="Octocat logo"
           width={117}
           height={117}
+          className="rounded-full"
         />
       </div>
       <div className="lg:ml-9 w-full">
         <div className="flex md:items-center w-full">
           <Image
-            src={"/octocat.png"}
+            src={avatarUrl}
             alt="Octocat logo"
             width={70}
             height={70}
-            className="md:hidden"
+            className="md:hidden rounded-full"
           />
           <Image
-            src={"/octocat.png"}
+            src={avatarUrl}
             alt="Octocat logo"
             width={117}
             height={117}
-            className="hidden md:block lg:hidden"
+            className="hidden md:block lg:hidden rounded-full"
           />
           <div className="w-full flex flex-col lg:flex-row lg:justify-between lg:items-center ml-5 md:ml-10 lg:ml-0">
             <h1 className="h3-txt font-bold md:h1-txt text-light-black dark:text-white">
-              The Octocat
+              {name}
             </h1>
             <span className="lg:hidden md:mt-[2px] h4-txt md:h3-txt text-light-blue1">
-              @octocat
+              {"@" + login}
             </span>
             <p className="h4-txt md:body-txt text-light-grey1 dark:text-white mt-[6px] md:mt-1 lg:mt-0">
-              Joined 15 Jul 2011
+              {createdAt}
             </p>
           </div>
         </div>
         <span className="hidden lg:block h4-txt lg:h3-txt text-light-blue1 mt-[2px]">
-          @octocat
+          {"@" + login}
         </span>
         <p className="h4-txt md:body-txt mt-8 md:mt-6 lg:mt-5 text-light-blue2 dark:text-white">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-          Quisque volutpat mattis eros.
+          {bio ?? "No bio found"}
         </p>
         {/* Count Component */}
         <div className="mt-6 md:mt-8 grid grid-cols-3 py-[18px] lg:py-4 px-[14px] lg:px-8 gap-x-8 w-full rounded-[10px] bg-light-grey2 dark:bg-dark-black1">
@@ -65,7 +95,7 @@ const CsBody = ({ containerClass }: CsBodyProps) => {
               Repos
             </h3>
             <p className="mt-[1px] text-light-black dark:text-white h3-txt md:h2-txt">
-              8
+              {publicRepos}
             </p>
           </div>
           <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start">
@@ -73,7 +103,7 @@ const CsBody = ({ containerClass }: CsBodyProps) => {
               Followers
             </h3>
             <p className="mt-[1px] text-light-black dark:text-white h3-txt md:h2-txt">
-              3939
+              {followers}
             </p>
           </div>
           <div className="flex flex-col justify-center items-center lg:justify-start lg:items-start">
@@ -81,7 +111,7 @@ const CsBody = ({ containerClass }: CsBodyProps) => {
               Following
             </h3>
             <p className="mt-[1px] text-light-black dark:text-white h3-txt md:h2-txt">
-              9
+              {following}
             </p>
           </div>
         </div>
@@ -101,7 +131,8 @@ const CsBody = ({ containerClass }: CsBodyProps) => {
                 />
               </svg>
             }
-            text="San Fransisco"
+            text={location ?? ""}
+            disabled={location ? false : true}
           />
           <CsLink
             icon={
@@ -112,9 +143,10 @@ const CsBody = ({ containerClass }: CsBodyProps) => {
                 />
               </svg>
             }
-            disabled
+            text={twitterUsername}
+            disabled={twitterUsername ? false : true}
           />
-          <CsLink text="https://github.blog" />
+          <CsLink text={blog ?? ""} disabled={blog ? false : true} />
           <CsLink
             icon={
               <svg
@@ -130,7 +162,8 @@ const CsBody = ({ containerClass }: CsBodyProps) => {
                 />
               </svg>
             }
-            text="@github"
+            text={company ?? ""}
+            disabled={company ? false : true}
           />
         </div>
       </div>
