@@ -8,8 +8,9 @@ import { useState } from "react";
 
 /**
  * TODO:
- * - this is a version where using 'use client'
  * - make a version using react server component
+ * - make a version using react query
+ * - make a version using react hook forms
  */
 
 export default function Page(): JSX.Element {

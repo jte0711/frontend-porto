@@ -2,11 +2,6 @@ import { authToken } from "@constant/env";
 import { githubUrl } from "@constant/url";
 import axios from "axios";
 
-/**
- * TODO:
- * - make interceptor that intercept error
- */
-
 const api = axios.create({
   baseURL: githubUrl,
   headers: {
