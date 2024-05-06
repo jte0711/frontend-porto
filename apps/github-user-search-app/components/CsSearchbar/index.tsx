@@ -1,4 +1,3 @@
-"use client";
 import CsButton from "@component/CsButton";
 import clsx from "clsx";
 import React, { Dispatch, SetStateAction } from "react";

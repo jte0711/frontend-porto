@@ -1,13 +1,15 @@
 import clsx from "clsx";
+import Link from "next/link";
 import React, { ReactNode } from "react";
 
 interface CsLinkProps {
   text?: string;
   disabled?: boolean;
   icon?: ReactNode;
+  href?: string;
 }
 
-const CsLink = ({ text, disabled = false, icon }: CsLinkProps) => {
+const CsLink = ({ text, disabled = false, icon, href }: CsLinkProps) => {
   return (
     <div className={clsx("flex items-center", disabled && "opacity-50")}>
       {icon ?? (
@@ -24,14 +26,16 @@ const CsLink = ({ text, disabled = false, icon }: CsLinkProps) => {
           />
         </svg>
       )}
-      <p
-        className={clsx(
-          "text-light-blue2 dark:text-white h4-txt md:body-txt ml-3 lg:ml-4 cursor-default",
-          disabled ? "opacity-50" : "hover:cursor-pointer hover:underline"
-        )}
-      >
-        {disabled ? "Not available" : text}
-      </p>
+      <Link href={href ?? ""}>
+        <p
+          className={clsx(
+            "text-light-blue2 dark:text-white h4-txt md:body-txt ml-3 lg:ml-4 cursor-default",
+            disabled ? "opacity-50" : "hover:cursor-pointer hover:underline"
+          )}
+        >
+          {disabled ? "Not available" : text}
+        </p>
+      </Link>
     </div>
   );
 };

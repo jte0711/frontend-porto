@@ -86,7 +86,7 @@ const CsBody = ({
           {"@" + login}
         </span>
         <p className="h4-txt md:body-txt mt-8 md:mt-6 lg:mt-5 text-light-blue2 dark:text-white">
-          {bio ?? "No bio found"}
+          {bio ?? "This profile has no bio"}
         </p>
         {/* Count Component */}
         <div className="mt-6 md:mt-8 grid grid-cols-3 py-[18px] lg:py-4 px-[14px] lg:px-8 gap-x-8 w-full rounded-[10px] bg-light-grey2 dark:bg-dark-black1">
@@ -144,9 +144,16 @@ const CsBody = ({
               </svg>
             }
             text={twitterUsername}
+            href={
+              twitterUsername ? "https://twitter.com/" + twitterUsername : ""
+            }
             disabled={twitterUsername ? false : true}
           />
-          <CsLink text={blog ?? ""} disabled={blog ? false : true} />
+          <CsLink
+            text={blog ?? ""}
+            href={blog ?? ""}
+            disabled={blog ? false : true}
+          />
           <CsLink
             icon={
               <svg
@@ -163,6 +170,7 @@ const CsBody = ({
               </svg>
             }
             text={company ?? ""}
+            href={company ? "https://github.com/" + company.substring(1) : ""}
             disabled={company ? false : true}
           />
         </div>

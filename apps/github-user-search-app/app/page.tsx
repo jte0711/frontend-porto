@@ -35,7 +35,7 @@ export default function Page(): JSX.Element {
       />
       <CsBody
         login={isLoading ? "octocat" : data.login}
-        name={isLoading ? "The Octocat" : data.name}
+        name={isLoading ? "The Octocat" : data.name ?? data.login}
         bio={
           isLoading
             ? "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."
